@@ -1,0 +1,27 @@
+== 一个关于用户信息和权限控制的模块
+注册+登录
+注册时保存密码使用has_secure_password
+添加发送邮件找回密码功能，使用Gmail发邮件
+使用cookie登录
+
+== 使用方法
+1、bundle install
+
+2、rake secret
+把生成的序列替换掉config\initializers\secret_token.rb
+
+3、修改config\environments\development.rb
+  config.action_mailer.smtp_settings = {
+      :address => "smtp.gmail.com",
+      :port => "587",
+      :domain => "gmail.com",
+      :authentication => "plain",
+      :user_name => "example@gmail.com",
+      :password => "password",
+      :enable_starttls_auto => true
+  }
+  替换为自己的Gmail邮件和密码
+
+4、rails s
+
+This file was modified by JetBrains RubyMine 3.2.4 for binding GitHub repository

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Auth3</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<% if current_user %>
+    welcome:<%= current_user.email %> |
+    <%= link_to "log out", log_out_path %>
+<% else %>
+    <%= link_to "sign up", sign_up_path %> &
+    <%= link_to "log in", log_in_path %>
+<% end %>
+<%= content_tag :div, notice, :id => "notice" %>
+
+<%= yield %>
+
+</body>
+</html>
